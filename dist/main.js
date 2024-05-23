@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
@@ -80,7 +80,7 @@ class Box extends THREE.Mesh {
 			this.position.y += this.velocity.y;
 		}
 	}*/
-} 
+}
 // TODO: Add an Entity class that extends the Box class.
 // Todo This class will include collision detection and movement, while Box will just extend THREE.Mesh
 // Todo: make const cube a Entity/Player object, and let ground remain a box.
@@ -136,9 +136,9 @@ function animate() {
 }
 animate();
 
-addEventListener('resize', () => {
+addEventListener("resize", () => {
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
 
-	renderer.setSize( window.innerWidth, window.innerHeight);
+	renderer.setSize(window.innerWidth, window.innerHeight);
 });
