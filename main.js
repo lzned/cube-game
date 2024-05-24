@@ -14,6 +14,9 @@ const camera = new THREE.PerspectiveCamera(
 	1000
 );
 
+camera.position.set(4.61, 2.74, 8);
+
+
 const renderer = new THREE.WebGLRenderer({
 	antialias: true,
 	alpha: true,
@@ -33,7 +36,8 @@ class CollisionDetector {
 				other,
 			})
 		) {
-			entity.velocity.y *= 0.6; //multiply by friction
+			const friction = 0.5
+			entity.velocity.y *= friction; //multiply by friction
 			entity.velocity.y = -entity.velocity.y;
 		} else {
 			entity.position.y += entity.velocity.y;
@@ -203,6 +207,9 @@ addEventListener("keydown", (keyPressed) => {
 			break;
 		case "KeyW":
 			keys.w.pressed = true;
+			break;
+		case "Space":
+			cube.velocity.y = 0.08;
 			break;
 	}
 });
